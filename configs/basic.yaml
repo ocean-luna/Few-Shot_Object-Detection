@@ -1,0 +1,30 @@
+dataset:
+  path: /data/test
+  name: voc
+model:
+  name: faster_rcnn
+  num_classes: 20
+  freeze_backbone: True
+  freeze_rpn: True
+  cosine_similarity: False
+train:
+  batch_size: 16
+  num_workers: 4
+  crop_size: 512
+  total_epoch: 60
+  init_lr: 0.0005
+  lr_scheduler_step_size: 5
+  lr_scheduler_gamma: 0.8
+  log_path: runs/exp1
+  log_frequency: 100
+  pretrained_checkpoint_path: null
+val:
+  batch_size: 1
+  num_workers: 4
+  crop_size: -1
+test:
+  batch_size: 1
+  num_workers: 4
+  crop_size: -1
+  log_path: runs/exp1
+  pretrained_checkpoint_path: runs/20240424232622/checkpoints/ckpt_best.pth
